@@ -108,7 +108,8 @@
             //Generate the data from the field values.
             var randomSequence = Math.random().toString(36).substring(7);
             var currentTime = new Date().getTime();
-            var tempFDFFile =  "temp_data" + currentTime + randomSequence + ".fdf",
+            // var tempFDFFile =  "temp_data" + currentTime + randomSequence + ".fdf",
+            var tempFDFFile = mktemp.createFileSync("/tmp/XXXXXXXXXX.fdf"),
                 tempFDF = (typeof tempFDFPath !== "undefined"? tempFDFPath + '/' + tempFDFFile: tempFDFFile),
 
                 formData = fdf.generator( fieldValues, tempFDF );
